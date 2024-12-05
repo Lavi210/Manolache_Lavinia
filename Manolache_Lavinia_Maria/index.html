@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicație Web</title>
+    <link rel="stylesheet" href="style.css"> <!-- Legătura către fișierul CSS -->
+</head>
+
+<body>
+    <header>
+        <h1>Lavinia Maria MANOLACHE</h1>
+        <p>Manolache.Ra.Lavinia@student.utcluj.ro</p>
+    </header>
+
+    <section>
+        <h2>Structura rețelei și caracteristicile conexiunii</h2>
+            <img src="diagrama.png" alt="diagrama a retelei personale">
+
+            <h2>Caracteristicile conexiunii la rețea</h2>
+            <ul>
+                <li>Adresa MAC: A4-B1-C1-3F-B5-ED</li>
+                <li>Adresa IP: 172.20.10.2</li>
+                <li>Debit la download: 10.2MB</li>
+                <li>Debit la upload: 7.2MB</li>
+            </ul>
+        
+    </section>
+	
+    
+	
+	<section id="monitorizare-resurse">
+        <h2>Monitorizare resurse</h2>
+        <div class="monitorizare-imagini">
+            <img src="cpu.png" alt="CPU Monitorizare">
+            <img src="disk.png" alt="Disk Monitorizare">
+            <img src="gpu.png" alt="GPU Monitorizare">
+            <img src="memorie.png" alt="Memorie Monitorizare">
+			<img src="porturi.png" alt="Porturi">
+			<img src="procese.png" alt="Procese">
+			<img src="servicii.png" alt="Servicii">
+			<img src="wifi.png" alt="Wi-Fi">
+
+        </div>
+
+        <div class="slider-wrapper">
+            <div class="slider">
+                <img src="cpu.png" alt="CPU Monitorizare">
+                <img src="disk.png" alt="Disk Monitorizare">
+                <img src="gpu.png" alt="GPU Monitorizare">
+                <img src="memorie.png" alt="Memorie Monitorizare">
+				<img src="porturi.png" alt="Porturi">
+				<img src="procese.png" alt="Procese">
+				<img src="servicii.png" alt="Servicii">
+				<img src="wifi.png" alt="Wi-Fi">
+            </div>
+        </div>
+    </section>
+
+
+         
+        <div class="content-block">
+		
+            <h2>Specificații tehnice ale stației principale de lucru</h2>
+		
+            <table>
+                <thead>
+                    <tr>
+                        <th>Denumire componentă</th>
+                        <th>Producător</th>
+                        <th>Parametri</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Procesor</td>
+                        <td>Intel</td>
+                        <td>i7-12700K, 3.8GHz</td>
+                    </tr>
+                    <tr>
+                        <td>Memorie RAM</td>
+                        <td>Corsair</td>
+                        <td>16GB DDR4</td>
+                    </tr>
+                    <tr>
+                        <td>Placă video</td>
+                        <td>NVIDIA</td>
+                        <td>RTX 3060, 12GB</td>
+                    </tr>
+                    <tr>
+                        <td>SSD</td>
+                        <td>Samsung</td>
+                        <td>1TB NVMe</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+	 <script>
+        // Selectează secțiunea de monitorizare resurse
+        const monitorizareSectiune = document.getElementById("monitorizare-resurse");
+
+        // Selectează slider-ul și imaginile de monitorizare
+        const sliderWrapper = monitorizareSectiune.querySelector(".slider-wrapper");
+        const monitorizareImagini = monitorizareSectiune.querySelector(".monitorizare-imagini");
+
+        // Adaugă evenimentul de dublu click pentru a schimba la slider
+        monitorizareSectiune.addEventListener("dblclick", function() {
+            // Ascunde imaginile și arată slider-ul
+            monitorizareImagini.style.display = "none";
+            sliderWrapper.style.display = "block";
+            
+            startSlider();  // Rulează slider-ul
+        });
+
+        // Funcția pentru a porni slider-ul
+        function startSlider() {
+            const slides = sliderWrapper.querySelectorAll(".slider img");
+            let currentSlide = 0;
+
+            // Schimbă slide-ul la fiecare 3 secunde
+            setInterval(function() {
+                // Ascunde slide-ul curent
+                slides[currentSlide].style.display = "none";
+                
+                // Găsește următorul slide
+                currentSlide = (currentSlide + 1) % slides.length;
+
+                // Afișează următorul slide
+                slides[currentSlide].style.display = "block";
+            }, 3000);  // Timpul de tranziție (3 secunde)
+        }
+    </script>
+</body>
+</html>
